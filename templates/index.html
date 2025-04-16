@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Forum Au Nom d’Elles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fffaf3;
+            margin: 0;
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+            color: #cc5200;
+        }
+        form {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ddd;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+        .message {
+            background-color: #fff8e1;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 6px solid #ffa500;
+            border-radius: 6px;
+        }
+        .label {
+            font-weight: bold;
+            color: #cc0000;
+        }
+        .safe {
+            color: green;
+        }
+        .alert {
+            background-color: #ffdddd;
+            color: #a30000;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border-left: 4px solid #ff0000;
+            border-radius: 4px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 0.4rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            background-color: #cc5200;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌸 Forum Au Nom d’Elles</h1>
+    <form method="POST">
+        <label>👤 Nom d'utilisateur</label>
+        <input type="text" name="pseudo" required>
+        <label>📝 Message</label>
+        <textarea name="texte" rows="4" required></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <h2>📚 Messages publiés</h2>
+    {% for pseudo, texte, label, proba_misog, proba_non in messages %}
+    <div class="message">
+        <b>{{ pseudo }}</b><br>
+        <i>{{ texte }}</i><br>
+        {% if label == 'Misogyne' %}
+            <div class="alert">⚠️ Ce message est jugé comme **misogyne**. Merci de revoir vos propos avant de publier.</div>
+        {% else %}
+            <span class="label safe">✔️ Message non misogyne</span>
+        {% endif %}
+    </div>
+    {% endfor %}
+</body>
+</html>
