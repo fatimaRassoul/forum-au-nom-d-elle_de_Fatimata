@@ -28,7 +28,7 @@ download_model_from_drive()
 
 # 🔄 Charger le modèle après téléchargement
 model = CamembertForSequenceClassification.from_pretrained("model_camembert3")
-tokenizer = CamembertTokenizer.from_pretrained("model_camembert3")
+tokenizer = CamembertTokenizer.from_pretrained("model_camembert_final")
 model.eval()
 
 DB_PATH = "forum.db"
