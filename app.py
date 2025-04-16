@@ -16,7 +16,7 @@ def download_model_from_drive():
         os.makedirs("model_camembert_final", exist_ok=True)
 
         # Remplace cet ID par l’ID réel de ton dossier Google Drive partagé
-        folder_id = "1cIcTUQBbXiOlVDWrjfOLpa1w3s8zHz7J?usp=sharing"
+        folder_id = "1B2Nriruvr4lpWs7OA7Gyekk80JPwkTcK?usp=sharing"
         gdown.download_folder(
             url=f"https://drive.google.com/drive/folders/{folder_id}",
             output="model_camembert_final",
