@@ -27,7 +27,7 @@ def download_model_from_drive():
 download_model_from_drive()
 
 # 🔄 Charger le modèle après téléchargement
-model = CamembertForSequenceClassification.from_pretrained("model_camembert3")
+model = CamembertForSequenceClassification.from_pretrained("model_camembert_final")
 tokenizer = CamembertTokenizer.from_pretrained("model_camembert_final")
 model.eval()
 
